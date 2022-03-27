@@ -19,7 +19,7 @@ networkmanager::networkmanager(QWidget *parent) :
     ui->MasterTable->setItem(0,2,myadd);
     udpSocket = new QUdpSocket(this); //分配空间，指定父对象
     udpSocket->bind(QHostAddress::AnyIPv4,portm); //UDP 绑定我方端口号
-    udpSocket->joinMulticastGroup( QHostAddress("224.0.0.10") ); //加入一个组播
+    udpSocket->joinMulticastGroup( QHostAddress("255.255.255.255") ); //加入一个组播
     connect(udpSocket,&QUdpSocket::readyRead, //当 UDP 接收到信息时会触发 readyRead
             this,&networkmanager::dealUDPreceiveF); //UDP 接收槽函数连接
 }
